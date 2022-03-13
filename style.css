@@ -5,8 +5,9 @@
 .calendar-wrapper{
     width: var(--calendar-width);
     margin: 0 auto;
-    color: rgb(84, 84, 84);
+    color: rgb(99, 99, 99);
     font-weight:bold;
+    font-size: 14px;
 }
 
 #cal-header{
@@ -93,12 +94,11 @@ td.today {
 /* イベント名 */
 .event-name {
     color:#eca83e;
-    font-weight: bold;
+    font-size: 15px;
 }
 
 /* イベント時間 */
 .event-time {
     color:#eca83e;
-    font-weight: bold;
-    font-size: 12px;
+    font-size: 13px;
 }

@@ -2,9 +2,6 @@ const week = ["日", "月", "火", "水", "木", "金", "土"];
 const today = new Date();
 let showDate = new Date(today.getFullYear(), today.getMonth(), 1);
 
-
-
-
 // リソースを読み込んでから処理を実行
 window.onload = function () {
     /* カレンダー表示 */
@@ -34,22 +31,20 @@ function showCalendar(date){
     xhr.send();
     xhr.onload = function() {
         const obj = xhr.response;
-        console.log(obj);
 
         //カレンダーの年月表示
         let year = date.getFullYear();
         let month = date.getMonth();
         document.querySelector('#cal-header').innerHTML = year + "年" + (month + 1) + "月";
         // カレンダー作成
-        let calendarHtml = createCalendar(year, month, obj);
+        let calendarHtml = createCalendar(year, month);
         document.querySelector('#calendar').innerHTML = calendarHtml;
         addEvent(year, month, obj);
     }
 }
 
 // カレンダー作成
-function createCalendar(year, month, obj){
-    console.log(obj.length);
+function createCalendar(year, month){
     // 曜日
     let calendarHtml = "<table><tr class = 'dayOfWeek'>";
     for(let i = 0 ; i < week.length ; i++){
@@ -77,7 +72,7 @@ function createCalendar(year, month, obj){
             } else {
                 count++;
                 if(year == today.getFullYear() && month == today.getMonth() && count == today.getDate()){
-                    calendarHtml += "<td class = 'today id" + year + "-" + (month + 1) + "-" + count + "'>" + count + "</td>"
+                    calendarHtml += "<td class = 'today id" + year + "-" + (month + 1) + "-" + count + "'>" + count + "</td>";
                 }else {
                     calendarHtml += "<td  class = 'id" + year + "-" + (month + 1) + "-" + count + "'>" + count + "</td>";
                 }
@@ -88,6 +83,7 @@ function createCalendar(year, month, obj){
     return calendarHtml;
 }
 
+// イベントをカレンダーに追加
 function addEvent(year, month, obj){
     for(let i = 0 ; i < obj.length; i++){
         if(obj[i].startYear == year && obj[i].startMonth == (month + 1)){
