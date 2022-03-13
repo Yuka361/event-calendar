@@ -1,7 +1,12 @@
+:root{
+    --calendar-width: 840px;
+}
+
 .calendar-wrapper{
-    width: 850px;
+    width: var(--calendar-width);
     margin: 0 auto;
-    color: rgba(0, 0, 0, 0.768);
+    color: rgb(84, 84, 84);
+    font-weight:bold;
 }
 
 #cal-header{
@@ -23,6 +28,7 @@ table{
     width: 100%;
 }
 th {
+    outline: 0.5px solid #cfecff;
     background-color:#67C1FF;
     color:white;
     padding-top: 10px;
@@ -37,25 +43,19 @@ td {
     padding-left: 7px;
     height: 80px;
 }
-/* 日曜日 */
-td:first-child {
-    color: red;
+th, td {
+    width: calc(var(--calendar-width)/7);
 }
 
-/* 土曜日 */
-td:last-child {
-    color: blue;
-}
-
-/* 今月以外の日付 */
+/* 今月以外の日付（文字の色を薄く） */
 td.date-disabled{
     color:#ddd;
 }
 
 /* 本日 */
 td.today {
-    background-color: #eca83e;
-    color: white;
+    color: #67C1FF;
+    font-weight: bold;
 }
 
 /* 月切替ボタン */
@@ -83,4 +83,22 @@ td.today {
 
 #next {
     float: right;
+}
+
+/* イベント日 */
+.event{
+    background-color:#fff9e3;
+}
+
+/* イベント名 */
+.event-name {
+    color:#eca83e;
+    font-weight: bold;
+}
+
+/* イベント時間 */
+.event-time {
+    color:#eca83e;
+    font-weight: bold;
+    font-size: 12px;
 }

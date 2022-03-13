@@ -7,20 +7,8 @@ let showDate = new Date(today.getFullYear(), today.getMonth(), 1);
 
 // リソースを読み込んでから処理を実行
 window.onload = function () {
-
-    /* JSONデータの取得 */
-    let xhr = new XMLHttpRequest(),
-    method = "GET",
-    url = "event.json";
-    xhr.open(method, url, true);
-    xhr.responseType = "json";
-    xhr.send();
-    xhr.onload = function() {
-        const obj = xhr.response;
-        console.log(obj);
-        /* カレンダー表示 */
-        showCalendar(today);
-    }
+    /* カレンダー表示 */
+    showCalendar(today);
 }
 
 // 前の月を表示
@@ -37,16 +25,31 @@ function next(){
 
 // カレンダー表示
 function showCalendar(date){
-    let year = date.getFullYear();
-    let month = date.getMonth();
-    //年月表示
-    document.querySelector('#cal-header').innerHTML = year + "年" + (month + 1) + "月";
-    let calendarHtml = createCalendar(year, month);
-    document.querySelector('#calendar').innerHTML = calendarHtml;
+    /* JSONデータの取得 */
+    let xhr = new XMLHttpRequest(),
+        method = "GET",
+        url = "event.json";
+    xhr.open(method, url, true);
+    xhr.responseType = "json";
+    xhr.send();
+    xhr.onload = function() {
+        const obj = xhr.response;
+        console.log(obj);
+
+        //カレンダーの年月表示
+        let year = date.getFullYear();
+        let month = date.getMonth();
+        document.querySelector('#cal-header').innerHTML = year + "年" + (month + 1) + "月";
+        // カレンダー作成
+        let calendarHtml = createCalendar(year, month, obj);
+        document.querySelector('#calendar').innerHTML = calendarHtml;
+        addEvent(year, month, obj);
+    }
 }
 
 // カレンダー作成
-function createCalendar(year, month){
+function createCalendar(year, month, obj){
+    console.log(obj.length);
     // 曜日
     let calendarHtml = "<table><tr class = 'dayOfWeek'>";
     for(let i = 0 ; i < week.length ; i++){
@@ -74,9 +77,9 @@ function createCalendar(year, month){
             } else {
                 count++;
                 if(year == today.getFullYear() && month == today.getMonth() && count == today.getDate()){
-                    calendarHtml += "<td class = 'today'>" + count + "</td>"
+                    calendarHtml += "<td class = 'today id" + year + "-" + (month + 1) + "-" + count + "'>" + count + "</td>"
                 }else {
-                    calendarHtml += "<td>" + count + "</td>";
+                    calendarHtml += "<td  class = 'id" + year + "-" + (month + 1) + "-" + count + "'>" + count + "</td>";
                 }
             }
         }
@@ -85,3 +88,13 @@ function createCalendar(year, month){
     return calendarHtml;
 }
 
+function addEvent(year, month, obj){
+    for(let i = 0 ; i < obj.length; i++){
+        if(obj[i].startYear == year && obj[i].startMonth == (month + 1)){
+            let elem = document.querySelector('.id' + obj[i].id);
+            elem.classList.add("event");
+            elem.innerHTML += "<div class = 'event-name'>" + obj[i].name + "</div>"
+            + "<div class = 'event-time'>" + obj[i].time + "</div>";
+        }
+    }
+}
