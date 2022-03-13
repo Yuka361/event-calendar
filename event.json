@@ -1,0 +1,23 @@
+[
+    {
+      "name": "Meeting 1",
+      "startYear": "2022",
+      "startMonth": "4",
+      "startDate": "1",
+      "Time": "16:00 - 17:00"
+    },
+    {
+      "name": "Meeting 2",
+      "startYear": "2022",
+      "startMonth": "4",
+      "startDate": "3",
+      "Time": "16:00 - 17:00"  
+    },
+    {
+      "name": "Meeting 3",
+      "startYear": "2022",
+      "startMonth": "4",
+      "startDate": "6",
+      "Time": "16:00 - 19:00"
+    }
+  ]

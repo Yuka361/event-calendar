@@ -1,0 +1,86 @@
+.calendar-wrapper{
+    width: 850px;
+    margin: 0 auto;
+    color: rgba(0, 0, 0, 0.768);
+}
+
+#cal-header{
+    text-align: center;
+    font-size: 24px;
+    width: 100%;
+    color:#67C1FF;
+}
+
+/* カレンダー */
+#calendar{
+    text-align: center;
+    width: 100%;
+}
+
+table{
+    outline: 0.5px solid #8ed2ff;
+    border-collapse: collapse;
+    width: 100%;
+}
+th {
+    background-color:#67C1FF;
+    color:white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+td {
+    outline: 0.5px solid #cfecff;
+    vertical-align: top;
+    text-align: left;
+    padding-top: 7px;
+    padding-left: 7px;
+    height: 80px;
+}
+/* 日曜日 */
+td:first-child {
+    color: red;
+}
+
+/* 土曜日 */
+td:last-child {
+    color: blue;
+}
+
+/* 今月以外の日付 */
+td.date-disabled{
+    color:#ddd;
+}
+
+/* 本日 */
+td.today {
+    background-color: #eca83e;
+    color: white;
+}
+
+/* 月切替ボタン */
+#switch-button{
+    position: relative;
+}
+
+#switch-button button {
+    cursor: pointer;
+    background: #67C1FF;
+    color: white;
+    border: 1px solid #67C1FF;
+    border-radius: 5px;
+    font-size: 14px;
+    padding: 10px 30px;
+    margin: 15px 0;
+}
+#switch-button button:hover {
+    background-color: #9dd8ff;
+    border-color: #9dd8ff;
+}
+#prev {
+    float: left;
+}
+
+#next {
+    float: right;
+}
