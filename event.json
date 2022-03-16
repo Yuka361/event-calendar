@@ -1,50 +1,37 @@
 [
-    {
-      "name": "Meeting 1",
-      "startYear": "2022",
-      "startMonth": "3",
-      "startDate": "15",
-      "time": "16:00 - 17:00",
-      "id": "2022-3-15"
-    },
-    {
-        "name": "Meeting 2",
-        "startYear": "2022",
-        "startMonth": "3",
-        "startDate": "28",
-        "time": "14:00 - 17:00",
-        "id": "2022-3-28"
-    },
-    {
-      "name": "Meeting 3",
-      "startYear": "2022",
-      "startMonth": "4",
-      "startDate": "3",
-      "time": "15:00 - 16:00",
-      "id": "2022-4-3"
-    },
-    {
-      "name": "Meeting 4",
-      "startYear": "2022",
-      "startMonth": "4",
-      "startDate": "6",
-      "time": "13:00 - 18:00",
-      "id": "2022-4-6"
-    },
-    {
-        "name": "Meeting 5",
-        "startYear": "2022",
-        "startMonth": "5",
-        "startDate": "10",
-        "time": "13:00 - 16:00",
-        "id": "2022-5-10"
-    },
-    {
-        "name": "Meeting 6",
-        "startYear": "2022",
-        "startMonth": "5",
-        "startDate": "25",
-        "time": "12:00 - 18:00",
-        "id": "2022-5-25"
-      }
-  ]
+  {
+    "name": "Meeting 1",
+    "startTime": "2022/3/5 16:00:00",
+    "endTime": "2022/3/5 17:00:00",
+    "price": 0,
+    "place": "YouTube",
+    "status": 7,
+    "url": "",
+    "headline": "",
+    "desc": ""
+  },
+  {
+    "name": "Meeting 2",
+    "startTime": "2022/4/10 15:00:00",
+    "endTime": "2022/4/10 17:00:00",
+    "price": 0,
+    "place": "Zoom",
+    "status": 6,
+    "submitLimitTime": "2022/4/2 23:59:59",
+    "url": "",
+    "headline": "",
+    "desc": ""
+  },
+  {
+    "name": "Meeting 3",
+    "startTime": "2022/4/19 20:00:00",
+    "endTime": "2022/4/19 22:00:00",
+    "price": 0,
+    "place": "Zoom",
+    "status": 6,
+    "submitLimitTime": "2022/4/1 23:59:59",
+    "url": "",
+    "headline": "",
+    "desc": ""
+  }
+]

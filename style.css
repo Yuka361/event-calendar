@@ -24,6 +24,7 @@
 }
 
 table{
+    table-layout: fixed;
     outline: 0.5px solid #8ed2ff;
     border-collapse: collapse;
     width: 100%;
@@ -46,6 +47,10 @@ td {
 }
 th, td {
     width: calc(var(--calendar-width)/7);
+    max-width: calc(var(--calendar-width)/7);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 /* 今月以外の日付（文字の色を薄く） */
@@ -94,11 +99,11 @@ td.today {
 /* イベント名 */
 .event-name {
     color:#eca83e;
-    font-size: 15px;
+    font-size: 14px;
 }
 
 /* イベント時間 */
 .event-time {
     color:#eca83e;
-    font-size: 13px;
+    font-size: 12px;
 }
